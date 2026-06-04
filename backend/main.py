@@ -83,3 +83,11 @@ async def unhandled_error_handler(request: Request, exc: Exception):
 @app.get("/")
 def root():
     return {"success": True, "data": {"name": "QueueAI API", "docs": "/docs"}, "error": None}
+
+
+# If you run the backend directly, this entrypoint makes local development easy.
+# Vercel ignores this block and discovers the `app` object automatically.
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run("backend.main:app", host="0.0.0.0", port=8000, reload=True)

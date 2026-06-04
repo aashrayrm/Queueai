@@ -112,10 +112,21 @@ Or use any of the seeded emails:
 ## Troubleshooting
 
 ### Issue: "VITE_API_BASE_URL not set"
-**Solution**: On Vercel, leave `VITE_API_BASE_URL` empty. The frontend will default to `http://localhost:8000` (which is wrong). Instead, update [src/api/client.js](src/api/client.js):
+**Solution**:
+- If frontend and backend are deployed in the same Vercel project, leave `VITE_API_BASE_URL` empty.
+- If backend is deployed as a separate Vercel project, set `VITE_API_BASE_URL` to the backend URL, for example:
+  `https://your-backend-project.vercel.app`
+
+For the frontend code, [src/api/client.js](src/api/client.js) should handle both cases correctly:
 ```javascript
 const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? (typeof window !== 'undefined' && window.location.hostname === 'localhost' ? 'http://localhost:8000' : '')
 ```
+
+### Separate backend project deployment
+If you deploy the backend from the `backend/` folder as its own Vercel project, do the following:
+1. In the backend Vercel project, use `backend/vercel.json` to deploy `main.py`.
+2. Add backend environment variables there: `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `SUPABASE_ANON_KEY`, and `ALLOWED_ORIGINS`.
+3. In the frontend Vercel project, set `VITE_API_BASE_URL` to the backend URL.
 
 ### Issue: "401 Unauthorized" on API calls
 **Solution**: Check that `SUPABASE_SERVICE_KEY` is correct in Vercel environment variables.
