@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
-from backend.responses import ok
-from backend.schemas import NotificationCreateRequest
-from backend.services import notifications_service
+from responses import ok
+from schemas import NotificationCreateRequest
+from services import notifications_service
 
 router = APIRouter(prefix="/notifications", tags=["notifications"])
 

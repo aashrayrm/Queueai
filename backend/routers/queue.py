@@ -5,9 +5,9 @@
 
 from fastapi import APIRouter
 
-from backend.schemas import JoinQueueRequest
-from backend.services import queue_service
-from backend.responses import ok
+from schemas import JoinQueueRequest
+from services import queue_service
+from responses import ok
 
 router = APIRouter(prefix="/queue", tags=["queue"])
 

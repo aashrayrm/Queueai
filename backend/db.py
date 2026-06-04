@@ -7,7 +7,7 @@
 from functools import lru_cache
 from supabase import create_client, Client
 
-from backend.config import settings
+from config import settings
 
 
 @lru_cache(maxsize=1)

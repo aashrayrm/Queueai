@@ -5,7 +5,7 @@
 
 from fastapi import APIRouter
 
-from backend.responses import ok
+from responses import ok
 
 router = APIRouter(tags=["system"])
 

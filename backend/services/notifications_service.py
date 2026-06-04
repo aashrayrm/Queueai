@@ -3,8 +3,8 @@ from datetime import datetime, timezone
 
 from postgrest.exceptions import APIError
 
-from backend.db import get_supabase
-from backend.responses import ServiceError
+from db import get_supabase
+from responses import ServiceError
 
 
 def _time_ago(value: str | None) -> str:

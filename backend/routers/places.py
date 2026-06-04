@@ -5,8 +5,8 @@
 
 from fastapi import APIRouter
 
-from backend.services import places_service
-from backend.responses import ok
+from services import places_service
+from responses import ok
 
 router = APIRouter(prefix="/places", tags=["places"])
 

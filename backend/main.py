@@ -21,9 +21,9 @@ from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.config import settings
-from backend.responses import ServiceError, fail
-from backend.routers import auth, places, queue, health, notifications
+from config import settings
+from responses import ServiceError, fail
+from routers import auth, places, queue, health, notifications
 
 # ---------- Logging ----------
 logging.basicConfig(
@@ -90,4 +90,4 @@ def root():
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("backend.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

@@ -5,9 +5,9 @@
 
 from fastapi import APIRouter
 
-from backend.schemas import RegisterRequest, LoginRequest
-from backend.services import auth_service
-from backend.responses import ok
+from schemas import RegisterRequest, LoginRequest
+from services import auth_service
+from responses import ok
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 

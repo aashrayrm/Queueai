@@ -9,8 +9,8 @@ import logging
 
 import bcrypt
 
-from backend.db import get_supabase
-from backend.responses import ServiceError
+from db import get_supabase
+from responses import ServiceError
 
 logger = logging.getLogger("queueai.auth")
 

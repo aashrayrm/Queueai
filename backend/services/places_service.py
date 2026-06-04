@@ -6,8 +6,8 @@
 
 from datetime import datetime, timezone
 
-from backend.db import get_supabase
-from backend.responses import ServiceError
+from db import get_supabase
+from responses import ServiceError
 
 _CATEGORY_SERVICE_MINUTES = {
     "Café": 4,

@@ -10,9 +10,9 @@ from datetime import datetime, timedelta, timezone
 
 from postgrest.exceptions import APIError
 
-from backend.db import get_supabase
-from backend.responses import ServiceError
-from backend.services.places_service import get_place, _format_wait
+from db import get_supabase
+from responses import ServiceError
+from services.places_service import get_place, _format_wait
 
 
 # Prefix used for the generated queue number, by category
