@@ -1,0 +1,433 @@
+/* ============================================================
+   JoinQueuePage Styles — QueueAI
+   Responsive: stacked (mobile) → side-by-side panels (desktop)
+   ============================================================ */
+
+.join-page {
+  background: var(--bg-main);
+}
+
+.join-content {
+  /* Mobile: narrow single-column */
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* --- Place Summary Banner --- */
+.join-place-summary {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.join-place-icon {
+  font-size: 40px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.join-place-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.join-place-cat {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* --- Wait Preview Card --- */
+.wait-preview-card {
+  margin: 0 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wait-preview-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.wait-preview-value {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1px;
+  transition: color var(--transition);
+}
+
+.wait-preview-note {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* --- Join Form --- */
+.join-form {
+  margin: 0 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.join-form-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* --- Form Groups --- */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.required {
+  color: var(--danger);
+  margin-left: 2px;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.form-input {
+  padding-left: 44px !important;
+}
+
+.input-error {
+  border-color: var(--danger) !important;
+}
+
+.field-error {
+  font-size: 12px;
+  color: var(--danger);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --- Party Size Grid (mobile: 3 columns) --- */
+.party-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.party-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 8px;
+  background: var(--bg-main);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.party-btn:hover {
+  border-color: var(--primary-light);
+  background: var(--primary-bg);
+}
+
+.party-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  transform: scale(1.03);
+}
+
+.party-btn-icon {
+  font-size: 20px;
+}
+
+.party-btn-num {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.party-btn-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+
+.party-btn.active .party-btn-label {
+  opacity: 0.85;
+  color: #fff;
+}
+
+/* --- Summary Box --- */
+.join-summary-box {
+  background: var(--bg-main);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-row span:first-child {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.summary-row span:last-child {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.summary-row-highlight {
+  background: var(--primary-bg);
+}
+
+/* --- Confirm Button --- */
+.confirm-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--success);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.confirm-btn:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.confirm-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.confirm-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   Responsive: Tablet (640px+)
+   Wider layout with more breathing room
+   ============================================================ */
+@media (min-width: 640px) {
+  .join-content {
+    max-width: 640px;
+    padding: 0 0 48px;
+    gap: 16px;
+  }
+
+  .join-place-summary {
+    padding: 24px 28px;
+  }
+
+  .join-place-name {
+    font-size: 20px;
+  }
+
+  .join-place-icon {
+    font-size: 48px;
+  }
+
+  .wait-preview-card {
+    margin: 0 28px;
+    padding: 24px;
+  }
+
+  .wait-preview-value {
+    font-size: 56px;
+  }
+
+  .join-form {
+    margin: 0 28px;
+    padding: 28px 24px;
+    gap: 22px;
+  }
+
+  /* Party grid: all 6 in one row on tablet */
+  .party-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .party-btn {
+    padding: 14px 6px;
+  }
+}
+
+/* ============================================================
+   Responsive: Desktop (1024px+)
+   Two-panel side-by-side:
+   Left: place summary + wait preview
+   Right: form
+   ============================================================ */
+@media (min-width: 1024px) {
+  .join-content {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto 1fr;
+    column-gap: 28px;
+    row-gap: 0;
+    padding: 36px 40px 56px;
+    flex-direction: unset;
+    gap: unset;
+    align-items: start;
+  }
+
+  /* Place summary takes full left column */
+  .join-place-summary {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 24px;
+    border-radius: var(--radius-xl);
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0;
+  }
+
+  /* Wait preview sits below summary on left */
+  .wait-preview-card {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 16px 0 0;
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+
+  /* Form spans full right column (both rows) */
+  .join-form {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    margin: 0;
+    padding: 32px 28px;
+    gap: 24px;
+  }
+
+  .join-form-title {
+    font-size: 20px;
+  }
+
+  /* Party grid: all 6 in one row on desktop */
+  .party-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .party-btn {
+    padding: 14px 8px;
+  }
+
+  .party-btn-num {
+    font-size: 20px;
+  }
+
+  .form-label {
+    font-size: 14px;
+  }
+
+  .confirm-btn {
+    font-size: 16px;
+    padding: 16px;
+  }
+
+  .join-place-name {
+    font-size: 22px;
+  }
+
+  .join-place-icon {
+    font-size: 52px;
+  }
+
+  .wait-preview-value {
+    font-size: 52px;
+  }
+}

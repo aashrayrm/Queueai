@@ -1,0 +1,567 @@
+/* ============================================================
+   QueueDetailsPage Styles — QueueAI
+   Responsive: single-column (mobile) → two-column (desktop)
+   Left: hero + description + info | Right: AI wait + stats + CTA
+   ============================================================ */
+
+.details-page {
+  background: var(--bg-main);
+}
+
+.details-content {
+  /* Mobile: narrow single-column */
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* --- Hero Banner --- */
+.details-hero {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.hero-icon {
+  font-size: 52px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.hero-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.hero-category {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.hero-status {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* --- Stars --- */
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 6px;
+}
+
+.star {
+  font-size: 16px;
+}
+
+.star.filled {
+  color: #f59e0b;
+}
+
+.star.empty {
+  color: #d1d5db;
+}
+
+.rating-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-left: 6px;
+}
+
+/* --- Info Chips --- */
+.info-cards-row {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-chip {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+.info-chip-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* --- Description Card --- */
+.details-card {
+  margin: 0 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.details-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* --- AI Wait Time Card --- */
+.ai-wait-card {
+  margin: 0 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ai-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ai-confidence {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.ai-wait-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0 8px;
+  gap: 4px;
+}
+
+.ai-wait-time {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.ai-wait-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Flash animation when wait time updates live */
+@keyframes waitFlash {
+  0%   { opacity: 1; transform: scale(1); }
+  30%  { opacity: 0.4; transform: scale(0.92); }
+  70%  { opacity: 1; transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.wait-flash {
+  animation: waitFlash 0.6s ease;
+}
+
+/* Live refresh indicator row */
+.live-refresh-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: pulse 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.live-refresh-text {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Confidence progress bar */
+.confidence-bar-track {
+  height: 6px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.confidence-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.8s ease;
+}
+
+/* --- Stats Grid --- */
+.stats-grid {
+  margin: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-card-accent {
+  background: var(--primary-bg);
+  border-color: #c7d2fe;
+}
+
+.stat-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stat-bar-track {
+  height: 4px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+.stat-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.stat-best-time {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.stat-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 2px;
+}
+
+/* --- Reviews Row --- */
+.reviews-row {
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.reviews-icon {
+  font-size: 18px;
+}
+
+.reviews-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.reviews-text strong {
+  color: var(--text-primary);
+}
+
+/* --- Join Queue CTA --- */
+.cta-section {
+  margin: 8px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.join-cta-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.25);
+}
+
+.join-cta-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35);
+}
+
+.join-cta-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.cta-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* --- Not Found --- */
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 12px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.not-found-icon {
+  font-size: 56px;
+}
+
+.not-found h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.back-home-btn {
+  margin-top: 8px;
+  padding: 12px 28px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  transition: background var(--transition);
+}
+
+.back-home-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* ============================================================
+   Responsive: Tablet (640px+)
+   Wider single column, side-by-side info chips
+   ============================================================ */
+@media (min-width: 640px) {
+  .details-content {
+    max-width: 700px;
+    padding: 0 0 48px;
+    gap: 16px;
+  }
+
+  .details-hero {
+    padding: 28px 28px;
+  }
+
+  .hero-name {
+    font-size: 28px;
+  }
+
+  .hero-icon {
+    font-size: 60px;
+  }
+
+  /* Info chips side by side */
+  .info-cards-row {
+    padding: 0 28px;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .info-chip {
+    flex: 1;
+    font-size: 14px;
+  }
+
+  .details-card {
+    margin: 0 28px;
+    padding: 20px;
+  }
+
+  .details-description {
+    font-size: 15px;
+  }
+
+  .ai-wait-card {
+    margin: 0 28px;
+    padding: 24px;
+  }
+
+  .stats-grid {
+    margin: 0 28px;
+  }
+
+  .reviews-row {
+    margin: 0 28px;
+  }
+
+  .cta-section {
+    margin: 8px 28px 0;
+  }
+}
+
+/* ============================================================
+   Responsive: Desktop (1024px+)
+   TRUE two-column layout using explicit grid placement:
+   Column 1 (left):  hero | info-row | description | reviews
+   Column 2 (right): ai-wait | stats-grid | cta-section
+   ============================================================ */
+@media (min-width: 1024px) {
+  .details-content {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    column-gap: 28px;
+    row-gap: 16px;
+    /* Remove flex layout — use grid */
+    flex-direction: unset;
+    padding: 28px 40px 56px;
+    /* Remove default flex gap — grid gap handles spacing */
+    gap: unset;
+  }
+
+  /* ── LEFT COLUMN explicit placement ── */
+  .details-hero {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 28px;
+    margin: 0;
+  }
+
+  .info-cards-row {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 0;
+    flex-direction: row;
+    gap: 12px;
+    margin: 0;
+  }
+
+  .details-card {
+    grid-column: 1;
+    grid-row: 3;
+    margin: 0;
+  }
+
+  .reviews-row {
+    grid-column: 1;
+    grid-row: 4;
+    margin: 0;
+  }
+
+  /* ── RIGHT COLUMN explicit placement ── */
+  .ai-wait-card {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    position: sticky;
+    top: 88px; /* sits below the 68px navbar */
+    align-self: start;
+  }
+
+  .stats-grid {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+  }
+
+  .cta-section {
+    grid-column: 2;
+    grid-row: 3;
+    margin: 0;
+  }
+
+  /* ── Typography scale-up ── */
+  .hero-name {
+    font-size: 30px;
+  }
+
+  .hero-icon {
+    font-size: 64px;
+  }
+
+  .ai-wait-time {
+    font-size: 60px;
+  }
+
+  .info-chip {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+
+  .details-description {
+    font-size: 15px;
+  }
+}

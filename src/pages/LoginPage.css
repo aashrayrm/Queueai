@@ -1,0 +1,478 @@
+/* ============================================================
+   LoginPage Styles — QueueAI
+   Responsive: centered card (mobile/tablet) →
+   two-panel layout (desktop): left branding + right form
+   ============================================================ */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 50%, #f0fdf4 100%);
+  padding: 24px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Decorative background blobs --- */
+.login-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+}
+
+.blob-1 {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, #c7d2fe, #818cf8);
+  top: -80px;
+  right: -80px;
+}
+
+.blob-2 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, #bbf7d0, #34d399);
+  bottom: -60px;
+  left: -60px;
+}
+
+/* --- Main Container (mobile: single column, desktop: two-panel) --- */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* --- Header / Branding --- */
+.login-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.login-logo {
+  font-size: 48px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 8px rgba(79, 70, 229, 0.3));
+  animation: floatLogo 3s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.login-brand {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.login-tagline {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* --- Login Card --- */
+.login-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-xl);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-card-top {
+  text-align: center;
+}
+
+.login-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* --- Error Alert --- */
+.login-error {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid #fca5a5;
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: fadeInUp 0.25s ease;
+}
+
+/* --- Form --- */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+}
+
+/* Input wrapper for icon + field */
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.form-input {
+  padding-left: 44px !important;
+  padding-right: 44px !important;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  background: none;
+  color: var(--text-muted);
+  transition: color var(--transition);
+  padding: 0;
+  z-index: 1;
+}
+
+.toggle-password:hover {
+  color: var(--text-primary);
+}
+
+/* --- Login Button --- */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+
+.login-btn:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);
+}
+
+.login-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.login-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+/* Spinner inside button */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Demo Section --- */
+.demo-section {
+  text-align: center;
+}
+
+.demo-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.demo-link {
+  background: none;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition);
+}
+
+.demo-link:hover {
+  color: var(--primary-dark);
+}
+
+/* --- Feature Pills --- */
+.login-features {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.feature-icon {
+  font-size: 14px;
+}
+
+/* ============================================================
+   Responsive: Mobile small (< 420px)
+   ============================================================ */
+@media (max-width: 420px) {
+  .login-card {
+    padding: 24px 20px;
+  }
+
+  .login-brand {
+    font-size: 28px;
+  }
+
+  .login-logo {
+    font-size: 40px;
+  }
+}
+
+/* ============================================================
+   Responsive: Tablet (640px+)
+   Slightly wider card, more spacious
+   ============================================================ */
+@media (min-width: 640px) {
+  .login-container {
+    max-width: 460px;
+  }
+
+  .login-brand {
+    font-size: 36px;
+  }
+
+  .login-logo {
+    font-size: 56px;
+  }
+
+  .login-card {
+    padding: 36px 32px;
+  }
+
+  .login-title {
+    font-size: 24px;
+  }
+}
+
+/* ============================================================
+   Responsive: Desktop (1024px+)
+   Two-panel layout:
+   Left panel: gradient background with branding + feature pills
+   Right panel: login card form
+   ============================================================ */
+@media (min-width: 1024px) {
+  .login-page {
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  /* Hide blobs on desktop — left panel has its own bg */
+  .blob-1, .blob-2 {
+    display: none;
+  }
+
+  /* Two-column full-height layout */
+  .login-container {
+    max-width: none;
+    width: 100%;
+    flex-direction: row;
+    gap: 0;
+    min-height: 100vh;
+  }
+
+  /* ── LEFT PANEL: branding ── */
+  .login-header {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 60px 48px;
+    background: linear-gradient(160deg, #4f46e5 0%, #3730a3 40%, #1e1b4b 100%);
+    text-align: center;
+    border-radius: 0;
+  }
+
+  .login-logo {
+    font-size: 72px;
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.3));
+  }
+
+  .login-brand {
+    font-size: 48px;
+    color: #fff;
+    letter-spacing: -2px;
+  }
+
+  .login-tagline {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    max-width: 320px;
+    line-height: 1.6;
+  }
+
+  /* Feature pills on left panel */
+  .login-features {
+    margin-top: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .feature-item {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    padding: 10px 16px;
+    gap: 8px;
+  }
+
+  .feature-icon {
+    font-size: 18px;
+  }
+
+  /* ── RIGHT PANEL: login form ── */
+  .login-card {
+    flex: 0 0 480px;
+    width: 480px;
+    border-radius: 0;
+    box-shadow: none;
+    background: #fff;
+    border: none;
+    border-left: 1px solid var(--border-light);
+    padding: 0 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 24px;
+  }
+
+  .login-card-top {
+    text-align: left;
+  }
+
+  .login-title {
+    font-size: 28px;
+  }
+
+  .login-subtitle {
+    font-size: 15px;
+  }
+
+  .login-form {
+    gap: 18px;
+  }
+
+  .login-btn {
+    font-size: 16px;
+    padding: 16px;
+  }
+
+  /* Hide bottom feature pills on desktop — left branding panel is sufficient */
+  .login-features {
+    display: none;
+  }
+}
+
+/* ============================================================
+   Responsive: Large Desktop (1280px+)
+   Left panel gets even more space
+   ============================================================ */
+@media (min-width: 1280px) {
+  .login-card {
+    flex: 0 0 520px;
+    width: 520px;
+    padding: 0 64px;
+  }
+}

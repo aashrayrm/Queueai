@@ -1,0 +1,439 @@
+/* ============================================================
+   ConfirmationPage Styles — QueueAI
+   Responsive: stacked (mobile) → wider centered (tablet) →
+   two-column with 4-col detail grid (desktop)
+   ============================================================ */
+
+.confirmation-page {
+  background: var(--bg-main);
+}
+
+.confirmation-content {
+  /* Mobile: narrow single-column */
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- Success Animation Area --- */
+.success-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0 4px;
+  text-align: center;
+}
+
+/* Animated success ring */
+.success-ring {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--success-bg);
+  border: 3px solid var(--success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.1);
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.success-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-check {
+  font-size: 40px;
+  color: var(--success);
+  font-weight: 900;
+  line-height: 1;
+  animation: checkDraw 0.4s ease 0.3s both;
+}
+
+@keyframes checkDraw {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.success-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.success-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.success-subtitle strong {
+  color: var(--text-primary);
+}
+
+/* --- Queue Number Card --- */
+.queue-number-card {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: var(--radius-xl);
+  padding: 28px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.queue-number-card::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.queue-number-card::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.queue-number-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.queue-number-value {
+  font-size: 56px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -2px;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.queue-number-hint {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+}
+
+/* --- Details Grid (mobile: 2 columns) --- */
+.confirm-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.confirm-detail-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: var(--shadow-sm);
+}
+
+.confirm-detail-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.confirm-detail-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.confirm-detail-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+/* --- Notification Card --- */
+.notify-card {
+  background: var(--warning-bg);
+  border: 1px solid #fde68a;
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.notify-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.notify-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notify-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #92400e;
+}
+
+.notify-time {
+  font-size: 22px;
+  font-weight: 800;
+  color: #78350f;
+  line-height: 1;
+}
+
+.notify-hint {
+  font-size: 12px;
+  color: #b45309;
+  line-height: 1.5;
+  margin-top: 2px;
+}
+
+.notify-hint strong {
+  font-weight: 700;
+}
+
+/* --- Tips Card --- */
+.tips-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.tips-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.tips-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tips-list li {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.tips-list li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.tips-list li strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* --- Action Buttons --- */
+.confirm-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.return-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.25);
+  letter-spacing: 0.02em;
+}
+
+.return-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);
+}
+
+.return-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.auto-return-text {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.auto-return-text strong {
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   Responsive: Tablet (640px+)
+   Wider content, notification + tips side by side
+   ============================================================ */
+@media (min-width: 640px) {
+  .confirmation-content {
+    max-width: 640px;
+    padding: 32px 28px 56px;
+    gap: 20px;
+  }
+
+  .success-title {
+    font-size: 28px;
+  }
+
+  .success-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .success-check {
+    font-size: 46px;
+  }
+
+  .queue-number-value {
+    font-size: 64px;
+  }
+
+  /* Notification + tips row on tablet */
+  .notify-tips-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .notify-card,
+  .tips-card {
+    height: 100%;
+  }
+
+  .tips-list li {
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
+   Responsive: Desktop (1024px+)
+   Wider container, 4-column detail grid,
+   notification + tips side-by-side
+   ============================================================ */
+@media (min-width: 1024px) {
+  .confirmation-content {
+    max-width: 800px;
+    padding: 40px 40px 64px;
+    gap: 24px;
+  }
+
+  /* Header area: success + queue number side by side */
+  .success-area {
+    padding: 12px 0 8px;
+  }
+
+  .success-title {
+    font-size: 30px;
+  }
+
+  .success-ring {
+    width: 108px;
+    height: 108px;
+  }
+
+  .success-check {
+    font-size: 52px;
+  }
+
+  .queue-number-value {
+    font-size: 72px;
+  }
+
+  /* 4-column detail grid on desktop */
+  .confirm-details-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .confirm-detail-card {
+    padding: 18px 16px;
+  }
+
+  .confirm-detail-icon {
+    font-size: 24px;
+  }
+
+  .confirm-detail-value {
+    font-size: 16px;
+  }
+
+  /* Notification and Tips always side by side */
+  .notify-card {
+    padding: 20px;
+  }
+
+  .notify-time {
+    font-size: 26px;
+  }
+
+  .tips-card {
+    padding: 20px;
+  }
+
+  .tips-title {
+    font-size: 15px;
+  }
+
+  .return-btn {
+    font-size: 16px;
+    padding: 16px;
+    max-width: 400px;
+  }
+}

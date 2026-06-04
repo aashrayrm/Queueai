@@ -1,0 +1,226 @@
+/* ============================================================
+   PlaceCard Styles — QueueAI
+   Responsive: works well in single-column (mobile) and
+   2-column grid (tablet+). Cards maintain consistent height.
+   ============================================================ */
+
+.place-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+  will-change: transform;
+  /* Ensure cards stretch to equal height in grid rows */
+  display: flex;
+  flex-direction: column;
+}
+
+.place-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* --- Card Header (gradient strip with emoji icon) --- */
+.card-header {
+  padding: 20px 20px 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: 80px;
+  flex-shrink: 0;
+}
+
+.card-icon {
+  font-size: 36px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* --- Card Body --- */
+.card-body {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  /* Fill remaining space so all cards in a grid row are same height */
+  flex: 1;
+}
+
+/* --- Name & Category --- */
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  /* Prevent very long names from breaking layout */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-category {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* --- Wait Time --- */
+.card-wait {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-main);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+}
+
+.wait-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.wait-value {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* --- Queue Progress Bar --- */
+.queue-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.queue-bar-track {
+  height: 6px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.queue-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.6s ease;
+}
+
+.queue-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* --- View Details Button --- */
+.view-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  letter-spacing: 0.02em;
+  /* Always stay at bottom of card */
+  margin-top: auto;
+}
+
+.view-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.view-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ============================================================
+   Responsive: Tablet (640px+)
+   Cards in 2-column grid — slightly larger typography
+   ============================================================ */
+@media (min-width: 640px) {
+  .card-header {
+    padding: 22px 22px 18px;
+    min-height: 90px;
+  }
+
+  .card-icon {
+    font-size: 40px;
+  }
+
+  .card-body {
+    padding: 18px 22px 22px;
+    gap: 16px;
+  }
+
+  .card-name {
+    font-size: 19px;
+  }
+
+  .wait-value {
+    font-size: 22px;
+  }
+}
+
+/* ============================================================
+   Responsive: Desktop (1024px+)
+   Cards remain in 2-column layout, more generous spacing
+   ============================================================ */
+@media (min-width: 1024px) {
+  .card-header {
+    padding: 24px 24px 20px;
+    min-height: 96px;
+  }
+
+  .card-icon {
+    font-size: 44px;
+  }
+
+  .card-body {
+    padding: 20px 24px 24px;
+    gap: 16px;
+  }
+
+  .card-name {
+    font-size: 20px;
+  }
+
+  .card-category {
+    font-size: 14px;
+  }
+
+  .wait-label {
+    font-size: 13px;
+  }
+
+  .wait-value {
+    font-size: 24px;
+  }
+
+  .queue-count {
+    font-size: 13px;
+  }
+
+  .view-btn {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
