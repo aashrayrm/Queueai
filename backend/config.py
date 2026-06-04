@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     SUPABASE_ANON_KEY: str = ""         # optional, used for auth flows
 
     # CORS — comma-separated list of allowed frontend origins
-    ALLOWED_ORIGINS: str = "http://localhost:5173,http://localhost:4173,https://queueai.vercel.app/"
+    ALLOWED_ORIGINS: str = "http://localhost:5173,http://localhost:4173,https://queueai.vercel.app"
 
     model_config = SettingsConfigDict(
         env_file=".env",
