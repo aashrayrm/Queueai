@@ -5,10 +5,16 @@
 //
 // Base URL comes from VITE_API_BASE_URL:
 //   • Local dev:  http://localhost:8000
-//   • Production: "" (same Vercel domain, routes to /api/*)
+//   • Same-project Vercel deploy: empty string (routes to /api/*)
+//   • Separate backend deploy: https://queueai-backend.vercel.app
 // ============================================================
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000'
+const rawBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim()
+const BASE_URL = rawBaseUrl
+  ? rawBaseUrl
+  : typeof window !== 'undefined' && window.location.hostname === 'localhost'
+  ? 'http://localhost:8000'
+  : 'https://queueai-backend.vercel.app'
 
 // Core request helper — returns parsed `data` or throws an Error
 async function request(path, { method = 'GET', body } = {}) {
