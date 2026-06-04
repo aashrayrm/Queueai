@@ -112,58 +112,58 @@ delete from public.users;
 insert into public.places
   (name, category, estimated_wait_time, queue_length, queue_status,
    category_icon, address, hours, rating, reviews, description,
-   max_queue, avg_service_minutes, best_time_to_visit, ai_confidence,
+   max_queue, best_time_to_visit, ai_confidence,
    color, bg_gradient, status_label)
 values
   ('Cafe Aroma', 'Café', 15, 3, 'moderate',
    '☕', '12 University Avenue, Block A', 'Mon-Sat: 7:00 AM - 9:00 PM', 4.5, 128,
    'A cosy specialty coffee shop known for artisan brews, fresh pastries, and a relaxed work-friendly atmosphere.',
-   20, 4, '2:00 PM - 3:30 PM', 92, '#F59E0B', 'linear-gradient(135deg, #FEF3C7, #FDE68A)', 'Moderate Wait'),
+   20, '2:00 PM - 3:30 PM', 92, '#F59E0B', 'linear-gradient(135deg, #FEF3C7, #FDE68A)', 'Moderate Wait'),
 
   ('QuickCut Salon', 'Salon', 8, 2, 'low',
    '✂️', '45 Market Street, Ground Floor', 'Tue-Sun: 9:00 AM - 7:00 PM', 4.7, 94,
    'A modern walk-in hair salon offering professional haircuts, styling, and grooming services with fast turnaround.',
-   10, 14, '10:00 AM - 11:30 AM', 88, '#8B5CF6', 'linear-gradient(135deg, #EDE9FE, #DDD6FE)', 'Short Wait'),
+   10, '10:00 AM - 11:30 AM', 88, '#8B5CF6', 'linear-gradient(135deg, #EDE9FE, #DDD6FE)', 'Short Wait'),
 
   ('City Clinic', 'Clinic', 35, 7, 'busy',
    '🏥', '7 Health Square, Medical Zone', 'Mon-Fri: 8:00 AM - 6:00 PM', 4.3, 211,
    'A well-equipped general medical clinic providing consultations, routine check-ups, and minor procedure services.',
-   12, 11, '8:00 AM - 9:00 AM', 85, '#EF4444', 'linear-gradient(135deg, #FEE2E2, #FECACA)', 'Busy Now'),
+   12, '8:00 AM - 9:00 AM', 85, '#EF4444', 'linear-gradient(135deg, #FEE2E2, #FECACA)', 'Busy Now'),
 
   ('Burger Hub', 'Restaurant', 12, 4, 'moderate',
    '🍔', '88 Food Court Lane, Level 2', 'Daily: 11:00 AM - 10:00 PM', 4.6, 305,
    'A trendy gourmet burger joint famous for smash burgers, loaded fries, and craft milkshakes.',
-   15, 6, '3:00 PM - 5:00 PM', 90, '#10B981', 'linear-gradient(135deg, #D1FAE5, #A7F3D0)', 'Moderate Wait'),
+   15, '3:00 PM - 5:00 PM', 90, '#10B981', 'linear-gradient(135deg, #D1FAE5, #A7F3D0)', 'Moderate Wait'),
 
   ('Bean & Byte Cafe', 'Café', 9, 2, 'low',
    '☕', '22 Tech Park Road, Tower 3', 'Daily: 8:00 AM - 8:30 PM', 4.8, 176,
    'Specialty coffee, quiet charging desks, and breakfast bowls for students, founders, and remote teams.',
-   18, 4, '1:30 PM - 3:00 PM', 94, '#0EA5E9', 'linear-gradient(135deg, #E0F2FE, #BAE6FD)', 'Short Wait'),
+   18, '1:30 PM - 3:00 PM', 94, '#0EA5E9', 'linear-gradient(135deg, #E0F2FE, #BAE6FD)', 'Short Wait'),
 
   ('Glow Studio Salon', 'Salon', 22, 5, 'busy',
    '✂️', '19 Lakeview Arcade, First Floor', 'Mon-Sat: 10:00 AM - 8:00 PM', 4.4, 83,
    'A compact styling studio for haircuts, blowouts, beard trims, and quick grooming appointments.',
-   8, 16, '11:00 AM - 12:00 PM', 82, '#EC4899', 'linear-gradient(135deg, #FCE7F3, #FBCFE8)', 'Busy Now'),
+   8, '11:00 AM - 12:00 PM', 82, '#EC4899', 'linear-gradient(135deg, #FCE7F3, #FBCFE8)', 'Busy Now'),
 
   ('GreenCare Dental', 'Clinic', 18, 4, 'moderate',
    '🏥', '5 Wellness Plaza, Suite 204', 'Mon-Sat: 9:00 AM - 5:00 PM', 4.6, 142,
    'Dental consultation and cleaning clinic with scheduled and walk-in slots for minor treatments.',
-   14, 10, '9:00 AM - 10:00 AM', 89, '#14B8A6', 'linear-gradient(135deg, #CCFBF1, #99F6E4)', 'Moderate Wait'),
+   14, '9:00 AM - 10:00 AM', 89, '#14B8A6', 'linear-gradient(135deg, #CCFBF1, #99F6E4)', 'Moderate Wait'),
 
   ('Spice Route Kitchen', 'Restaurant', 28, 9, 'busy',
    '🍽️', '61 Central Mall, Food Court', 'Daily: 12:00 PM - 11:00 PM', 4.5, 267,
    'Fast casual Indian bowls, thalis, and rolls with high lunch and dinner demand.',
-   16, 7, '4:00 PM - 6:00 PM', 86, '#F97316', 'linear-gradient(135deg, #FFEDD5, #FED7AA)', 'Busy Now'),
+   16, '4:00 PM - 6:00 PM', 86, '#F97316', 'linear-gradient(135deg, #FFEDD5, #FED7AA)', 'Busy Now'),
 
   ('Noodle Nest', 'Restaurant', 10, 3, 'low',
    '🍜', '9 East Street, Shop 6', 'Daily: 11:30 AM - 10:30 PM', 4.7, 198,
    'Quick-service ramen, wok bowls, dumplings, and tea with a compact counter queue.',
-   14, 5, '2:30 PM - 4:00 PM', 91, '#6366F1', 'linear-gradient(135deg, #E0E7FF, #C7D2FE)', 'Short Wait'),
+   14, '2:30 PM - 4:00 PM', 91, '#6366F1', 'linear-gradient(135deg, #E0E7FF, #C7D2FE)', 'Short Wait'),
 
   ('CarePlus Diagnostics', 'Clinic', 24, 6, 'moderate',
    '🏥', '31 Health Avenue, Basement Level', 'Mon-Sat: 7:30 AM - 4:30 PM', 4.2, 119,
    'Diagnostics center for blood tests, imaging appointments, and routine health screenings.',
-   18, 9, '7:30 AM - 8:30 AM', 84, '#06B6D4', 'linear-gradient(135deg, #CFFAFE, #A5F3FC)', 'Moderate Wait');
+   18, '7:30 AM - 8:30 AM', 84, '#06B6D4', 'linear-gradient(135deg, #CFFAFE, #A5F3FC)', 'Moderate Wait');
 
 insert into public.users (email, password_hash) values
   ('demo@queueai.com', '$2b$12$z8JvhJ7wQvR0h7p0eL8Aee6xQ7vL0eL8Aee6xQ7vL0eL8AeKK5q5e'),
